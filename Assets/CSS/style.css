@@ -1,0 +1,55 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    
+}
+
+.jumbotron {
+    background-color: rgb(68, 68, 73) !important;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    
+   
+    border-bottom: 2px solid gray;
+}
+
+.header {
+    position:relative;
+    left:10%;
+}
+input {
+    border-radius: 5px;
+    background-color:white;
+}
+.searchBtn  {
+    border: none; 
+   border-radius: 5px ;
+    background: #064ed5;
+    color: white ;
+    opacity: 100% ;
+    transition: opacity 1s ;
+    padding:3px;
+    height: 48px;
+  }
+
+  button:hover {
+    opacity: 70%;
+   }
+   
+   button:focus {
+       outline:none !important;
+   }
+
+   aside {
+       background-color:rgb(247, 247, 247);
+       min-height: 80vh;
+       padding-right: 15px;
+       width:30%;
+   }
+ p{
+     font-size: 28px;
+ }
+ .weather {
+     border: 3px solid rgb(231, 231, 231);
+     border-radius: 5px;
+     min-height: 50vh;
+ }
