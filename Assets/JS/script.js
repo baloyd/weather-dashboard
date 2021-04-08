@@ -1,9 +1,9 @@
 var API_KEY="af9615c5a33d02dcff997f71632442e3";
 
 
-document.getElementById("cityForm").addEventListener("submit",function(event) {
+$("button").on("click",function(event) {
     event.preventDefault();
-    var cityName=document.getElementById("cityNameInput").value;
+    var cityName=$("#cityNameInput").val();
     if(!cityName) {
         alert("Please enter the name of a city.");
     } else {
