@@ -1,5 +1,6 @@
 *{
     font-family:Arial, Helvetica, sans-serif;
+    margin:0;
     
 }
 
@@ -39,19 +40,21 @@ input {
        outline:none !important;
    }
 
-   .container1 {
+
+   .col-lg-3 {
        background-color:rgb(247, 247, 247);
-       min-height: 80vh;
-       padding-right: 15px;
-       
+       min-height: 85vh;
+         
    }
 
-   
- p{
-     font-size: 28px;
- }
+p{
+    font-size: 20px;
+}
  .weather {
      border: 3px solid rgb(231, 231, 231);
      border-radius: 5px;
-     min-height: 50vh;
+     min-height: 25vh;
+     
  }
+
+ 

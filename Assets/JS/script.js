@@ -34,7 +34,7 @@ $("button").on("click",function(event) {
                     console.log(data);
 
                     var dailyTemp = data.daily[0].temp.day
-                    document.querySelector("ul").innerText ="Todays temperature in "+cityName+" will be: "+dailyTemp;
+                    
                 })
         })
 
