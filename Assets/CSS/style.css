@@ -39,12 +39,14 @@ input {
        outline:none !important;
    }
 
-   aside {
+   .container1 {
        background-color:rgb(247, 247, 247);
        min-height: 80vh;
        padding-right: 15px;
-       width:30%;
+       
    }
+
+   
  p{
      font-size: 28px;
  }
