@@ -7,8 +7,9 @@ $("button").on("click",function(event) {
     if(!cityName) {
         alert("Please enter the name of a city.");
     } else {
-        document.getElementById("cityNameInput").innerText=cityName;
-
+        var cityList = $("<li>");
+        cityList.text(cityName);
+        cityList.appendTo("#cities");
        
         var requestUrl= "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&appid="+API_KEY;
 

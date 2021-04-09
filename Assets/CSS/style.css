@@ -13,10 +13,7 @@
     border-bottom: 2px solid gray;
 }
 
-.header {
-    position:relative;
-    left:10%;
-}
+
 input {
     border-radius: 5px;
     background-color:white;
@@ -53,8 +50,18 @@ p{
  .weather {
      border: 3px solid rgb(231, 231, 231);
      border-radius: 5px;
-     min-height: 25vh;
+     max-height: 40vh;
      
  }
 
+ #cities {
+    border-radius: 5px;
+    background-color:white;
+    border: 2px solid rgb(231, 231, 231);
+    text-decoration: none;
+    
+ }
  
+ #forecast {
+     
+ }
