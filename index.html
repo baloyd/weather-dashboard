@@ -40,19 +40,25 @@
                 <p>Search for a City:</p>
                 <input class="form-control form-control-lg"  type="text" id="cityNameInput">
                 <button type="button" class=" searchBtn"> Search</button>
-                <div id="cities"> </div>
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                      
+                    </ul>
+                  </div>
             </div>
     
             <div class="col-lg-9 weather ">
-                <h1 id="cityHolder">City Placeholder</h1>
-                <p>Temperature:</p>
-                <p>Humidity:</p>
-                <p>Wind Speed:</p>
-                <p>UV Index:</p>
+                <h1 id="cityHolder">City</h1>
+                <p id="tempHolder">Temperature:</p>
+                <p id="humHolder">Humidity:</p>
+                <p id="windHolder">Wind Speed:</p>
+                <p id="uvHolder">UV Index:</p>
 
-                <div class="col-lg-9 pt-5">
-                    <h1 id="forecast">5-Day Forecast:</h1>
+                <div class="col-lg-9 pt-5 ">
+                    <h1 >5-Day Forecast:</h1>
+                    <div class="forecast">
                    
+                </div>
                 </div>
             </div>
         </div>
@@ -67,5 +73,6 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/JS/script.js"></script>
   </html>

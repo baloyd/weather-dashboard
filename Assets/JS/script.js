@@ -1,5 +1,5 @@
 var API_KEY="af9615c5a33d02dcff997f71632442e3";
-
+var currentDate = moment().format("M/D/YYYY")
 
 $("button").on("click",function(event) {
     event.preventDefault();
@@ -8,10 +8,11 @@ $("button").on("click",function(event) {
         alert("Please enter the name of a city.");
     } else {
         var cityList = $("<li>");
+        cityList.addClass("list-group-item")
         cityList.text(cityName);
-        cityList.appendTo("#cities");
+        cityList.appendTo("ul");
        
-        var requestUrl= "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&appid="+API_KEY;
+        var requestUrl= "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&units=imperial&appid="+API_KEY;
 
         fetch(requestUrl).then(function(response) {
             if(!response.ok) {
@@ -24,7 +25,7 @@ $("button").on("click",function(event) {
 
                 var latitude=data[0].lat;
                 var longitude=data[0].lon;
-                var forecastRequestUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&appid="+API_KEY
+                var forecastRequestUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&units=imperial&appid="+API_KEY
 
                 fetch(forecastRequestUrl).then(function(response){
                     if(!response.ok) {
@@ -35,8 +36,32 @@ $("button").on("click",function(event) {
                     console.log(data);
 
                     var dailyTemp = data.daily[0].temp.day
+                    var dailyHumid = data.daily[0].humidity
+                    var dailyWind = data.daily[0].wind_speed
+                    var dailyIndex = data.daily[0].uvi
+                    var weatherIcon = data.daily[0].weather[0].icon
+                    var iconUrl = "http://openweathermap.org/img/w/"+weatherIcon+".png";
+                    var iconImage = $("<img>");
+                    iconImage.attr("src",iconUrl)
                     
-                })
+                    $("#cityHolder").text(cityName+" ("+currentDate+")")
+                    $("#tempHolder").text("Temperature: "+dailyTemp+"°F")
+                    $("#humHolder").text("Humidity: "+dailyHumid+"%")
+                    $("#windHolder").text("Wind Speed: "+dailyWind+"MPH")
+                    $("#uvHolder").text("UV Index: "+dailyIndex)
+
+                    for(var i=3;i<data.daily.length;i++) {
+                        var dailyCast=data.daily[i];
+
+                        var castDiv=$("<div>");
+                        castDiv.addClass("forecastCard");
+                        castDiv.text(dailyCast.temp.day,dailyCast.humidity)
+                        
+                        castDiv.appendTo(".forecast")
+                       
+                       
+                    
+                }})
         })
 
     }
