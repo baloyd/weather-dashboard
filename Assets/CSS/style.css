@@ -68,11 +68,14 @@ p{
  }
 
 .forecastCard{
-    display:block;
+    display:flex;
+    flex-direction:column;
+    justify-content:start;
     border-radius: 5px;
     background-color:blue;
     height: 25vh;
     max-width: 25%;
     padding: 30px;
     color: white;
+    font-size: 13px;
 }

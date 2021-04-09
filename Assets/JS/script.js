@@ -55,8 +55,23 @@ $("button").on("click",function(event) {
 
                         var castDiv=$("<div>");
                         castDiv.addClass("forecastCard");
-                        castDiv.text(dailyCast.temp.day,dailyCast.humidity)
-                        
+
+                        listDay=$("<div>")
+                        listDay.text(moment().add(i,"days").format("M/D/YYYY"))
+                        listDay.appendTo(castDiv)
+
+                         listIcon=$("<img>")
+                         listIcon.attr("src",dailyCast.weather[0].icon)
+                         listIcon.appendTo(castDiv)
+
+                        listTemp=$("<div>")
+                        listTemp.text("Temp: "+dailyCast.temp.day+"°F")
+                        listTemp.appendTo(castDiv)
+
+                        listHumid=$("<div>")
+                        listHumid.text("Humidity: "+dailyCast.humidity+"%")
+                        listHumid.appendTo(castDiv)
+
                         castDiv.appendTo(".forecast")
                        
                        
