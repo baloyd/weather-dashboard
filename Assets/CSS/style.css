@@ -70,12 +70,12 @@ p{
 .forecastCard{
     display:flex;
     flex-direction:column;
-    justify-content:start;
+    justify-content:space-evenly;
     border-radius: 5px;
     background-color:blue;
     height: 25vh;
     max-width: 25%;
     padding: 30px;
     color: white;
-    font-size: 13px;
+    font-size: 16px;
 }
