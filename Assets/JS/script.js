@@ -98,7 +98,8 @@ $("button").on("click",function(event) {
                 }})})}})
 
                 $("ul").on("click","li",function(event) {
-                    console.log("you clicked a ul")
-                    localStorage.getItem("cityName")
+                    var listVal = event.target.textContent
+                    console.log("you clicked "+listVal)
+                    
                 })
 
