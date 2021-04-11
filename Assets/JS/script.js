@@ -13,7 +13,7 @@ $("button").on("click",function(event) {
         //request url to open weather api with the concatenated city inputted by the user.
         var requestUrl= "https://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&units=imperial&appid="+API_KEY;
        
-        var cityList = $("<li>");
+        var cityList = $("<li>")
         cityList.addClass("list-group-item")
         cityList.text(cityName);
         cityList.appendTo("ul");
@@ -73,12 +73,13 @@ $("button").on("click",function(event) {
                     }else 
                     $("#number").addClass("moderate")
                     
-                    //when city in search history is clicked, the weather is displayed on the right.
-                    $("ul").on("click","li",function(event) {
-                        var listVal = event.target.textContent
-                        $("#forecast").empty()
-                        getWeather(listVal)
-                    })
+                  //when city in search history is clicked, the weather is displayed on the right.
+                   $("#ul").on("click",function(event) {
+                   var listVal = event.target.textContent
+                     console.log("clicked")
+                     $("#forecast").empty()
+                      getWeather(listVal)
+                        })
                     //formula to loop through the array to grab the necessary information to create a 5-day forecast and then append it to the forecast column
                     for(var i=1;i<6;i++) {
                         var dailyCast=data.daily[i];
@@ -106,5 +107,6 @@ $("button").on("click",function(event) {
 
                 }})})}}})
 
-               
-
+           
+ 
+ 
