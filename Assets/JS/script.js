@@ -12,8 +12,9 @@ $("button").on("click",function(event) {
         
         var cityList = $("<li>");
         cityList.addClass("list-group-item")
-        cityList.text(cityName);
+       var city = $(cityList).text(cityName);
         cityList.appendTo("ul");
+        localStorage.setItem("cityName", cityName)
         $("#forecast").empty()
         
        //request url to open weather api with the concatenated city inputted by the user.
@@ -51,15 +52,25 @@ $("button").on("click",function(event) {
                     var iconImage = $("<img>");
                     iconImage.attr("src","http://openweathermap.org/img/w/"+weatherIcon+".png")
                     
-                    
+                   
+
+                   //adding the values pulled from the object to populate the placeholders
                     $("#cityHolder").text(cityName+" ("+currentDate+")")
                     iconImage.appendTo("#cityHolder")
                     $("#tempHolder").text("Temperature: "+dailyTemp+"°F")
                     $("#humHolder").text("Humidity: "+dailyHumid+"%")
                     $("#windHolder").text("Wind Speed: "+dailyWind+"MPH")
-                    $("#uvHolder").text("UV Index: "+dailyIndex)
+                    $("#uvHolder").html("UV Index: <span id='number'>"+dailyIndex+"</span>")
                     
-                   
+                    //applies the appropriate classes depending on what the uv index is for the given city.
+                    if(dailyIndex <= 2){
+                        $("#number").removeClass() 
+                        $("#number").addClass("favorable")
+                    }else if(dailyIndex >=8) {
+                        $("#number").addClass("severe")
+                    }else 
+                    $("#number").addClass("moderate")
+                    
                     //formula to loop through the array to grab the necessary information to create a 5-day forecast and then append it to the forecast column
                     for(var i=1;i<6;i++) {
                         var dailyCast=data.daily[i];
@@ -85,4 +96,9 @@ $("button").on("click",function(event) {
                          
                         castDiv.appendTo("#forecast")
                 }})})}})
+
+                $("ul").on("click","li",function(event) {
+                    console.log("you clicked a ul")
+                    localStorage.getItem("cityName")
+                })
 
