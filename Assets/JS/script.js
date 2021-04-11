@@ -9,19 +9,21 @@ $("button").on("click",function(event) {
     if(!cityName) {
         alert("Please enter the name of a city.");
     } else {
-        
+
+        //request url to open weather api with the concatenated city inputted by the user.
+        var requestUrl= "https://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&units=imperial&appid="+API_KEY;
+       
         var cityList = $("<li>");
         cityList.addClass("list-group-item")
-       var city = $(cityList).text(cityName);
+        cityList.text(cityName);
         cityList.appendTo("ul");
         localStorage.setItem("cityName", cityName)
         $("#forecast").empty()
-        
-       //request url to open weather api with the concatenated city inputted by the user.
-        var requestUrl= "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&units=imperial&appid="+API_KEY;
+        getWeather(cityName)
        
         //fetches information from the weather api. If there iis a response, then the data will be available in the console.
-        fetch(requestUrl).then(function(response) {
+        function getWeather(cityName){
+            fetch(requestUrl).then(function(response) {
             if(!response.ok) {
                 alert("No information found for "+cityName);
             } 
@@ -53,7 +55,7 @@ $("button").on("click",function(event) {
                     iconImage.attr("src","http://openweathermap.org/img/w/"+weatherIcon+".png")
                     
                    
-
+                
                    //adding the values pulled from the object to populate the placeholders
                     $("#cityHolder").text(cityName+" ("+currentDate+")")
                     iconImage.appendTo("#cityHolder")
@@ -71,6 +73,12 @@ $("button").on("click",function(event) {
                     }else 
                     $("#number").addClass("moderate")
                     
+                    //when city in search history is clicked, the weather is displayed on the right.
+                    $("ul").on("click","li",function(event) {
+                        var listVal = event.target.textContent
+                        $("#forecast").empty()
+                        getWeather(listVal)
+                    })
                     //formula to loop through the array to grab the necessary information to create a 5-day forecast and then append it to the forecast column
                     for(var i=1;i<6;i++) {
                         var dailyCast=data.daily[i];
@@ -95,11 +103,8 @@ $("button").on("click",function(event) {
                         listHumid.appendTo(castDiv)
                          
                         castDiv.appendTo("#forecast")
-                }})})}})
 
-                $("ul").on("click","li",function(event) {
-                    var listVal = event.target.textContent
-                    console.log("you clicked "+listVal)
-                    
-                })
+                }})})}}})
+
+               
 
