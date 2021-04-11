@@ -9,10 +9,12 @@ $("button").on("click",function(event) {
     if(!cityName) {
         alert("Please enter the name of a city.");
     } else {
+        
         var cityList = $("<li>");
         cityList.addClass("list-group-item")
         cityList.text(cityName);
         cityList.appendTo("ul");
+        $("#forecast").empty()
         
        //request url to open weather api with the concatenated city inputted by the user.
         var requestUrl= "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&units=imperial&appid="+API_KEY;
@@ -59,10 +61,9 @@ $("button").on("click",function(event) {
                     
                    
                     //formula to loop through the array to grab the necessary information to create a 5-day forecast and then append it to the forecast column
-                    for(var i=3;i<data.daily.length;i++) {
+                    for(var i=1;i<6;i++) {
                         var dailyCast=data.daily[i];
                        
-                        $(castDiv).hide;
                         var castDiv=$("<div>");
                         castDiv.addClass("forecastCard");
 
@@ -82,14 +83,6 @@ $("button").on("click",function(event) {
                         listHumid.text("Humidity: "+dailyCast.humidity+"%")
                         listHumid.appendTo(castDiv)
                          
-                        castDiv.appendTo(".forecast")
-                       
-                       
-                    
-                }})
-        })
-
-    }
-
-})
+                        castDiv.appendTo("#forecast")
+                }})})}})
 
