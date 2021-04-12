@@ -10,7 +10,7 @@
     font-family:Arial, Helvetica, sans-serif;
     
    
-    border-bottom: 2px solid gray;
+    border-bottom: 3px solid gray;
 }
 
 
@@ -49,9 +49,10 @@ p{
     font-size: 20px;
 }
  .weather {
-     border: 3px solid rgb(231, 231, 231);
+     border: 1px solid rgb(231, 231, 231);
      border-radius: 5px;
      max-height: 40vh;
+     padding-top: 30px;
      
  }
 
@@ -65,7 +66,7 @@ p{
  
  #forecast{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
  }
 
 .forecastCard{
@@ -83,12 +84,26 @@ p{
 
 .favorable {
     background-color: green;
+    border-radius: 5px;
+    color:white;
+    padding:10px;
 }
 
 .moderate {
     background-color: orange;
+    border-radius: 5px;
+    color:white;
+    padding:10px;
 }
 
 .severe {
     background-color:red;
+    border-radius: 5px;
+    color:white;
+    padding:10px;
 }
+
+li {
+    color: gray;
+}
+
