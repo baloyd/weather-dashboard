@@ -1,4 +1,4 @@
-##Weather Dashboard
+## Weather Dashboard
 ![Screen Shot 2021-08-25 at 10 45 06 AM](https://user-images.githubusercontent.com/78614719/130812431-f107b918-ff61-4a5e-8ea2-b3b7f8d44f8b.png)
 
 
